@@ -11,6 +11,8 @@
     
     <p>@experience.Title</p>
     <p>@Html.ActionLink("Edit", "Edit", new { id = experience.Id }) |
+	   @Html.ActionLink("View People", "Index", "People", new { id = experience.Id })
+       @Html.ActionLink("Add Person", "AddPerson", new { id = location.Id}) |
 	   @Html.ActionLink("Details", "Details", new {id = experience.Id}) |
        @Html.ActionLink("Delete", "Delete", new { id = experience.Id })</p>
 }

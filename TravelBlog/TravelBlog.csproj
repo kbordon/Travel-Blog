@@ -16,6 +16,7 @@
     <Folder Include="Views\Location\" />
     <Folder Include="Views\Experience\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\People\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,4 +31,7 @@
 	<ItemGroup>
       <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
   </ItemGroup>
+	<ItemGroup>
+	  <Content Remove="Views\Experience\AddExperience.cshtml" />
+	</ItemGroup>
 </Project>

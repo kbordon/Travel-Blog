@@ -1,1 +1,17 @@
-﻿
+﻿@model TravelBlog.ViewModels.PersonListModel
+
+@{
+    ViewData["Title"] = "Add Person";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(model => model.Title)
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
+    @Html.HiddenFor(model => model.LocationId)
+
+    <input type="submit" value="Create" />
+}
