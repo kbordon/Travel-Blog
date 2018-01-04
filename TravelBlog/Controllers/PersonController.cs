@@ -14,14 +14,54 @@ namespace TravelBlog.Controllers
     {
 
         private TravelBlogContext db = new TravelBlogContext();
-
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
-           Experience experience = db.Experiences.FirstOrDefault(l => l.Id == id);
-           ICollection<Person> people = db.People.Where(e => e.ExperienceId == id).ToList();
+           Experience experience = db.Experiences.FirstOrDefault(e => e.Id == id);
+           Location location = db.Locations.FirstOrDefault(l => l.Id == experience.LocationId);
+           
+            ICollection<Person> people = db.People.Where(e => e.ExperienceId == id).ToList();
 
-           PersonListModel model = new PersonListModel(experience, people);
+           PersonListModel model = new PersonListModel(experience, location, people);
            return View(model);
         }
+
+		public IActionResult Edit(int id)
+		{
+			var thisItem = db.Experiences.FirstOrDefault(location => location.Id == id);
+
+			return View(thisItem);
+		}
+
+		//public IActionResult Details(int id)
+		//{
+
+		//	Experience experience = db.Experiences.FirstOrDefault(e => e.Id == id);
+		//	return View(experience);
+		//}
+
+		//[HttpPost]
+		//public IActionResult Edit(Experience experience)
+		//{
+		//	int Locationid = experience.LocationId;
+		//	db.Entry(experience).State = EntityState.Modified;
+		//	db.SaveChanges();
+		//	return RedirectToAction("Index", new { id = Locationid });
+		//}
+
+		//public ActionResult Delete(int id)
+		//{
+		//	var thisItem = db.Experiences.FirstOrDefault(experience => experience.Id == id);
+		//	return View(thisItem);
+		//}
+
+		//[HttpPost, ActionName("Delete")]
+		//public IActionResult DeleteConfirmed(int id)
+		//{
+		//	var thisItem = db.Experiences.FirstOrDefault(experience => experience.Id == id);
+		//	int Locationid = thisItem.LocationId;
+		//	db.Experiences.Remove(thisItem);
+		//	db.SaveChanges();
+		//	return RedirectToAction("Index", new { id = Locationid });
+		//}
     }
 }

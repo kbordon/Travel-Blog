@@ -13,5 +13,8 @@ namespace TravelBlog.ViewModels
         {
             LocationId = locationId;
         }
+
+        public LocationExperiencesModel()
+        {}
     }
 }

@@ -65,8 +65,13 @@ namespace TravelBlog.Controllers
 			return View(model);
 		}
 		[HttpPost]
-		public IActionResult AddExperience(Experience experience)
+		public IActionResult AddExperience(LocationExperiencesModel result)
 		{
+			Experience experience = new Experience();
+			experience.Title = result.Title;
+			experience.Description = result.Description;
+			experience.LocationId = result.LocationId;
+
 			db.Experiences.Add(experience);
 			db.SaveChanges();
 			return RedirectToAction("Index");

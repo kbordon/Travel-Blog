@@ -53,6 +53,7 @@ namespace TravelBlog.Controllers
             var thisItem = db.Experiences.FirstOrDefault(experience => experience.Id == id);
 			return View(thisItem);
 		}
+
 		[HttpPost, ActionName("Delete")]
 		public IActionResult DeleteConfirmed(int id)
 		{
@@ -61,6 +62,26 @@ namespace TravelBlog.Controllers
 			db.Experiences.Remove(thisItem);
 			db.SaveChanges();
             return RedirectToAction("Index", new { id = Locationid});
+		}
+
+		public IActionResult AddPerson(int id)
+		{
+            var model = new ExperiencePeopleModel(id);
+            return View(model);
+
+		}
+
+		[HttpPost]
+        public IActionResult AddPerson(ExperiencePeopleModel result)
+		{
+            Person person = new Person();
+            person.Name = result.Name;
+            person.Description = result.Description;
+            person.ExperienceId = result.ExperienceId;
+
+            db.People.Add(person);
+			db.SaveChanges();
+            return RedirectToAction("Index", "Person", new { id = result.ExperienceId});
 		}
 
 	}

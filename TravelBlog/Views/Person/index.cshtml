@@ -1,0 +1,22 @@
+﻿@model TravelBlog.ViewModels.PersonListModel
+
+@{
+    ViewData["Title"] = "People";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>People met during @Model.Experience.Title</h1>
+
+<p>@Html.ActionLink("Add Person", "AddPerson", "Experience", new { id = Model.Experience.Id})</p>
+
+@foreach (var person in Model.People)
+{
+    
+    <h3>@person.Name</h3>
+    <p>@Html.ActionLink("Edit", "Edit", new { id = person.Id }) |
+   @Html.ActionLink("Details", "Details", new {id = person.Id}) |
+   @Html.ActionLink("Delete", "Delete", new { id = person.Id })</p>
+}
+
+
+<p>@Html.ActionLink("Back To Experiences", "Index", "Experience", new {id = Model.Location.Id})</p>
