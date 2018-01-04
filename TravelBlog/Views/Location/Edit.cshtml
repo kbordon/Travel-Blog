@@ -6,15 +6,15 @@
 }
 <h2>Edit</h2>
 <hr />
-<h4>Edit this location: @Html.DisplayFor(model => model.name)</h4>
+<h4>Edit this location: @Html.DisplayFor(model => model.Name)</h4>
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.Id)
 
-    @Html.LabelFor(model => model.name)
-    @Html.EditorFor(model => model.name)
-    @Html.LabelFor(model => model.description)
-    @Html.EditorFor(model => model.description)
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
 
     <input type="submit" value="Save" class="btn btn-default" />
 }

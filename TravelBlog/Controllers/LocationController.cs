@@ -33,7 +33,7 @@ namespace TravelBlog.Controllers
 
 		public IActionResult Edit(int id)
 		{
-			var thisItem = db.Locations.FirstOrDefault(location => location.id == id);
+			var thisItem = db.Locations.FirstOrDefault(location => location.Id == id);
 			
 			return View(thisItem);
 		}
@@ -47,13 +47,13 @@ namespace TravelBlog.Controllers
 
 		public ActionResult Delete(int id)
 		{
-            var thisItem = db.Locations.FirstOrDefault(location => location.id == id);
+            var thisItem = db.Locations.FirstOrDefault(location => location.Id == id);
 			return View(thisItem);
 		}
 		[HttpPost, ActionName("Delete")]
 		public IActionResult DeleteConfirmed(int id)
 		{
-			var thisItem = db.Locations.FirstOrDefault(location => location.id == id);
+			var thisItem = db.Locations.FirstOrDefault(location => location.Id == id);
 			db.Locations.Remove(thisItem);
 			db.SaveChanges();
 			return RedirectToAction("Index");

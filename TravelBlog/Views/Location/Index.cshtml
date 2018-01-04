@@ -8,12 +8,12 @@
 <h1>Location List</h1>
 @foreach (var location in Model)
 {
-    <h3>@Html.DisplayFor(modelLocation => location.name)</h3>
-    <p>@Html.DisplayFor(modelLocation => location.description)</p>
-    <p>@Html.ActionLink("View Experiences", "Index", "Experience", new { id = location.id }) |
-	   @Html.ActionLink("Add Experience", "AddExperience", new { id = location.id}) |	   
-	   @Html.ActionLink("Edit", "Edit", new { id = location.id }) |
-       @Html.ActionLink("Delete", "Delete", new { id = location.id })</p>
+    <h3>@Html.DisplayFor(modelLocation => location.Name)</h3>
+    <p>@Html.DisplayFor(modelLocation => location.Description)</p>
+    <p>@Html.ActionLink("View Experiences", "Index", "Experience", new { id = location.Id }) |
+	   @Html.ActionLink("Add Experience", "AddExperience", new { id = location.Id}) |	   
+	   @Html.ActionLink("Edit", "Edit", new { id = location.Id }) |
+       @Html.ActionLink("Delete", "Delete", new { id = location.Id })</p>
 }
 
 <p>@Html.ActionLink("Create New", "Create")</p>
