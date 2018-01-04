@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TravelBlog.Models;
 using TravelBlog.ViewModels;
 
@@ -25,43 +26,43 @@ namespace TravelBlog.Controllers
            return View(model);
         }
 
-		public IActionResult Edit(int id)
+		public IActionResult Details(int id)
 		{
-			var thisItem = db.Experiences.FirstOrDefault(location => location.Id == id);
 
-			return View(thisItem);
+			Person person = db.People.FirstOrDefault(p => p.Id == id);
+			return View(person);
 		}
 
-		//public IActionResult Details(int id)
-		//{
+		public IActionResult Edit(int id)
+		{
+            var thisPerson = db.People.FirstOrDefault(p => p.Id == id);
 
-		//	Experience experience = db.Experiences.FirstOrDefault(e => e.Id == id);
-		//	return View(experience);
-		//}
+			return View(thisPerson);
+		}
 
-		//[HttpPost]
-		//public IActionResult Edit(Experience experience)
-		//{
-		//	int Locationid = experience.LocationId;
-		//	db.Entry(experience).State = EntityState.Modified;
-		//	db.SaveChanges();
-		//	return RedirectToAction("Index", new { id = Locationid });
-		//}
+		[HttpPost]
+		public IActionResult Edit(Person person)
+		{
+            int ExperienceId = person.ExperienceId;
+			db.Entry(person).State = EntityState.Modified;
+			db.SaveChanges();
+            return RedirectToAction("Index", new { id = ExperienceId });
+		}
 
-		//public ActionResult Delete(int id)
-		//{
-		//	var thisItem = db.Experiences.FirstOrDefault(experience => experience.Id == id);
-		//	return View(thisItem);
-		//}
+		public ActionResult Delete(int id)
+		{
+			var thisPerson = db.People.FirstOrDefault(p => p.Id == id);
+			return View(thisPerson);
+		}
 
-		//[HttpPost, ActionName("Delete")]
-		//public IActionResult DeleteConfirmed(int id)
-		//{
-		//	var thisItem = db.Experiences.FirstOrDefault(experience => experience.Id == id);
-		//	int Locationid = thisItem.LocationId;
-		//	db.Experiences.Remove(thisItem);
-		//	db.SaveChanges();
-		//	return RedirectToAction("Index", new { id = Locationid });
-		//}
+		[HttpPost, ActionName("Delete")]
+		public IActionResult DeleteConfirmed(int id)
+		{
+			var thisPerson = db.People.FirstOrDefault(p => p.Id == id);
+            int ExperienceId = thisPerson.ExperienceId;
+            db.People.Remove(thisPerson);
+			db.SaveChanges();
+            return RedirectToAction("Index", new { id = ExperienceId });
+		}
     }
 }
