@@ -4,9 +4,8 @@
     ViewData["title"] = "Experience - Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Edit</h2>
+<h2>Edit this Experience: @Html.DisplayFor(model => model.Title)</h2>
 <hr />
-<h4>Edit this location: @Html.DisplayFor(model => model.Title)</h4>
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.Id)

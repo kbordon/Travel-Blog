@@ -9,7 +9,7 @@
 @foreach (var experience in Model.Experiences)
 {
     
-    <p>@experience.Title</p>
+    <h3>@experience.Title</h3>
     <p>@Html.ActionLink("Edit", "Edit", new { id = experience.Id }) |
 	   @Html.ActionLink("View People", "Index", "Person", new { id = experience.Id }) |
        @Html.ActionLink("Add Person", "AddPerson", new { id = Model.Location.Id}) |

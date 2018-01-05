@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: peachpuff;
+    font-family: Helvetica, sans-serif;
+}
+
+.container {
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+p {
+    margin: 5px;
+}
+
+a {
+    color: coral;
+    text-decoration: none;
+}
+
+input[type=submit] {
+    background-color: aqua;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+input[type=submit]:hover {
+    background-color: lightsalmon;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+input[type=text]{
+    width: 500px;
+    height: 22px;
+    font-size: 20px;
+}
+
+label {
+    font-size: 20px;
+}
+
+h1,h2 {
+    padding-bottom: 5px;
+}

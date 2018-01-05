@@ -4,13 +4,20 @@
     ViewData["Title"] = "Experience - Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<h1>Create an Experience</h1>
+<hr />
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Title)
-    @Html.TextBoxFor(model => model.Title)
-    @Html.LabelFor(model => model.Description)
-    @Html.TextBoxFor(model => model.Description)
+    <p>
+        @Html.LabelFor(model => model.Title)
+        @Html.TextBoxFor(model => model.Title)
+    </p>
+
+    <p>
+        @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description)
+    </p>
+
     @Html.HiddenFor(model => model.LocationId)
 
     <input type="submit" value="Create" />
